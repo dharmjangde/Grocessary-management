@@ -31,10 +31,10 @@ import AdminLayout from "../components/layout/AdminLayout";
 const CONFIG = {
   // Updated Google Apps Script URL
   APPS_SCRIPT_URL:
-    "https://script.google.com/macros/s/AKfycbynQzA2nABR-BLwrvbuFEL31BWSZngciUDWhx5e-pIUl4wGNbOUyEwMn2jJtaNocvzj/exec",
+    "https://script.google.com/macros/s/AKfycbyMck9gUPzYLdguUYNSv3Rf51RoApz7b3HjsoJGVEl2qjPmsxzu8SkMfMHY3a0YbUGO/exec",
 
   // Updated Google Drive folder ID for file uploads
-  DRIVE_FOLDER_ID: "1qqVz8ZAYrQbdwbIWuLueA2_LkBqvPhbd",
+  DRIVE_FOLDER_ID: "113JJSny0edSxkwl9MpjTmNJo0uZuHqVn",
 
   // Sheet names
   SOURCE_SHEET_NAME: "INVENTORY",
@@ -1730,17 +1730,29 @@ const handleSelectAllColumns = useCallback((e) => {
                             <td className="px-2 py-3 whitespace-nowrap text-xs">
                               {isSelected ? (
                                 <input
-                                  type="text"
-                                  value={editData.eventDate}
+                                  type="date"
+                                  value={
+                                    editData.eventDate
+                                      ? new Date(
+                                          editData.eventDate
+                                            .split("/")
+                                            .reverse()
+                                            .join("-")
+                                        )
+                                          .toISOString()
+                                          .split("T")[0]
+                                      : ""
+                                  }
                                   onChange={(e) =>
                                     handleEditableChange(
                                       record.id,
                                       "eventDate",
                                       e.target.value
+                                        ? formatDate(e.target.value)
+                                        : ""
                                     )
                                   }
                                   className="w-full px-1 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                  placeholder="DD/MM/YYYY"
                                 />
                               ) : (
                                 <span className="text-gray-900">

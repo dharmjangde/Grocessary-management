@@ -35,8 +35,8 @@ export default function InventoryForm() {
     remarks: ""
   });
 
-  const scriptUrl = "https://script.google.com/macros/s/AKfycbynQzA2nABR-BLwrvbuFEL31BWSZngciUDWhx5e-pIUl4wGNbOUyEwMn2jJtaNocvzj/exec";
-  const folderId = "1qqVz8ZAYrQbdwbIWuLueA2_LkBqvPhbd"; // Google Drive folder ID
+  const scriptUrl = "https://script.google.com/macros/s/AKfycbyMck9gUPzYLdguUYNSv3Rf51RoApz7b3HjsoJGVEl2qjPmsxzu8SkMfMHY3a0YbUGO/exec";
+  const folderId = "113JJSny0edSxkwl9MpjTmNJo0uZuHqVn"; // Google Drive folder ID
 
   // Show toast message
   const showToast = (message, type = "success") => {
