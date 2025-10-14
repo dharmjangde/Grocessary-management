@@ -22,7 +22,7 @@ const LoginPage = () => {
   // Fetch master data on component mount
   useEffect(() => {
     const fetchMasterData = async () => {
-      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMck9gUPzYLdguUYNSv3Rf51RoApz7b3HjsoJGVEl2qjPmsxzu8SkMfMHY3a0YbUGO/exec"
+      const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz_705CZWY7WafvEwM309BuWKOOYi24B9tlCuwUaLBvQSy9PzD7nkojRUcRajaBCchv/exec"
 
       try {
         setIsDataLoading(true)

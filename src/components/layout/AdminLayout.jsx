@@ -79,7 +79,7 @@ export default function AdminLayout({ children, darkMode, toggleDarkMode }) {
     //},
     {
       href: "/dashboard/assign-task",
-      label: "Add Inventory",
+      label: "Add Stock",
       icon: FileText,
       active: location.pathname === "/dashboard/assign-task",
       showFor: ["admin", "user"]
