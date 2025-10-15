@@ -258,7 +258,7 @@ if (inventoryResult.success && inventoryResult.data) {
         showToast(`Department "${newDepartment}" added successfully!`);
       } else {
         throw new Error(result.error || 'Failed to add department');
-      }
+      }  
     } catch (error) {
       console.error('Error adding department:', error);
       showToast('Failed to add department. Please try again.', 'error');
@@ -1129,7 +1129,7 @@ showToast("Data saved successfully!");
                         <input
                           type="number"
                           name="openingBalance"
-                          value={purchaseForm.openingBalance}
+                          value=""
                           onChange={(e) => setPurchaseForm(prev => ({ ...prev, openingBalance: e.target.value }))}
                           min="0"
                           step="0.01"
