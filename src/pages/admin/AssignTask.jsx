@@ -602,7 +602,7 @@ showToast("Data saved successfully!");
         unit: row[16],
         eventDate: row[19],
         uploadFile: row[15],
-        remarks: row[21]
+        remarks: row[20]
       }));
       setInventoryItems(items);
     }
