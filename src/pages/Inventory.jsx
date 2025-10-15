@@ -29,8 +29,6 @@ import {
 import AdminLayout from "../components/layout/AdminLayout";
 
 // INSTANT IMAGE LOADING - Optimized Image Component
-// REAL-TIME IMAGE LOADING - Optimized Image Component
-// ULTRA-FAST IMAGE LOADING - Simple and Fast
 const OptimizedImage = ({ src, alt, className, style, onClick }) => {
   const [imgSrc, setImgSrc] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -85,8 +83,8 @@ const OptimizedImage = ({ src, alt, className, style, onClick }) => {
 
   if (error || !imgSrc) {
     return (
-      <div className="flex items-center justify-center h-20 w-32 bg-gray-100 rounded border border-gray-200">
-        <FileText className="h-8 w-8 text-gray-400" />
+      <div className="flex items-center justify-center h-16 w-24 bg-gray-100 rounded border border-gray-200">
+        <FileText className="h-6 w-6 text-gray-400" />
       </div>
     );
   }
@@ -95,7 +93,7 @@ const OptimizedImage = ({ src, alt, className, style, onClick }) => {
     <div className="relative">
       {loading && (
         <div className="absolute inset-0 flex items-center justify-center bg-gray-100 rounded z-10">
-          <div className="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-4 h-4 border-2 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         </div>
       )}
       <img
@@ -112,8 +110,7 @@ const OptimizedImage = ({ src, alt, className, style, onClick }) => {
     </div>
   );
 };
-// SIMPLIFIED and WORKING Image compression function
-// ENHANCED Image compression function for faster processing
+
 // FAST Image compression - minimal processing
 const compressImage = (file, maxWidth = 800, maxHeight = 600, quality = 0.8) => {
   return new Promise((resolve) => {
@@ -150,8 +147,6 @@ const compressImage = (file, maxWidth = 800, maxHeight = 600, quality = 0.8) => 
   });
 };
 
-
-
 const CONFIG = {
   APPS_SCRIPT_URL:
     "https://script.google.com/macros/s/AKfycbz_705CZWY7WafvEwM309BuWKOOYi24B9tlCuwUaLBvQSy9PzD7nkojRUcRajaBCchv/exec",
@@ -166,24 +161,24 @@ const CONFIG = {
 
 // Column configuration with foodName added
 const COLUMN_CONFIG = [
-  { key: 'action', label: 'Action', pendingOnly: true },
-  { key: 'serialNo', label: 'Serial No', pendingOnly: false },
-  { key: 'inventoryNo', label: 'Inventory No', pendingOnly: false },
-  { key: 'inventoryType', label: 'Inventory Type', pendingOnly: false },
-  { key: 'department', label: 'Department', pendingOnly: false },
-  { key: 'itemsName', label: 'Items Name', pendingOnly: false },
-  { key: 'foodName', label: 'Food Name', pendingOnly: false },
-  { key: 'openingBalance', label: 'Opening Balance', pendingOnly: false },
-  { key: 'issueData', label: 'Issue Data', pendingOnly: false },
-  { key: 'returnData', label: 'Return Data', pendingOnly: false },
-  { key: 'damageItems', label: 'Damage Items', pendingOnly: false },
-  { key: 'missingItems', label: 'Missing Items', pendingOnly: false },
-  { key: 'closingBalance', label: 'Closing Balance', pendingOnly: false },
-  { key: 'uploadFile', label: 'Upload File', pendingOnly: false },
-  { key: 'unit', label: 'Unit', pendingOnly: false },
-  { key: 'perUnitPrice', label: 'Per Unit Price', pendingOnly: false },
-  { key: 'eventDate', label: 'Event Date', pendingOnly: false },
-  { key: 'remarks', label: 'Remarks', pendingOnly: false },
+  { key: 'action', label: 'ACTION', pendingOnly: true },
+  { key: 'serialNo', label: 'SERIAL NO', pendingOnly: false },
+  { key: 'inventoryNo', label: 'INVENTORY NO', pendingOnly: false },
+  { key: 'inventoryType', label: 'INVENTORY TYPE', pendingOnly: false },
+  { key: 'department', label: 'DEPARTMENT', pendingOnly: false },
+  { key: 'itemsName', label: 'ITEMS NAME', pendingOnly: false },
+  { key: 'foodName', label: 'FOOD NAME', pendingOnly: false },
+  { key: 'openingBalance', label: 'OPENING BALANCE', pendingOnly: false },
+  { key: 'issueData', label: 'ISSUE DATA', pendingOnly: false },
+  { key: 'returnData', label: 'RETURN DATA', pendingOnly: false },
+  { key: 'damageItems', label: 'DAMAGE ITEMS', pendingOnly: false },
+  { key: 'missingItems', label: 'MISSING ITEMS', pendingOnly: false },
+  { key: 'closingBalance', label: 'CLOSING BALANCE', pendingOnly: false },
+  { key: 'uploadFile', label: 'UPLOAD FILE', pendingOnly: false },
+  { key: 'unit', label: 'UNIT', pendingOnly: false },
+  { key: 'perUnitPrice', label: 'PER UNIT PRICE', pendingOnly: false },
+  { key: 'eventDate', label: 'EVENT DATE', pendingOnly: false },
+  { key: 'remarks', label: 'REMARKS', pendingOnly: false },
 ];
 
 // Debounce hook for search optimization
@@ -738,10 +733,10 @@ const fileToBase64 = (file) => {
 
   return (
     <AdminLayout>
-      <div className="space-y-4">
-        {/* Header */}
-        <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
-          <h1 className="text-xl font-bold tracking-tight text-blue-700">
+      <div className="min-h-screen bg-gray-50 p-4">
+        {/* Header - More compact */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-3 mb-4">
+          <h1 className="text-2xl font-bold text-blue-700">
             {CONFIG.PAGE_CONFIG.title}
           </h1>
           <div className="flex flex-wrap gap-2">
@@ -749,7 +744,7 @@ const fileToBase64 = (file) => {
             <select
               value={selectedInventoryType}
               onChange={(e) => setSelectedInventoryType(e.target.value)}
-              className="px-3 py-2 border border-blue-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
+              className="px-3 py-2 border border-blue-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white"
             >
               <option value="">All Inventory Types</option>
               {inventoryTypes.map((type) => (
@@ -760,101 +755,98 @@ const fileToBase64 = (file) => {
             </select>
 
             {/* Date Filter */}
-            <div className="flex items-center gap-2">
-              <input
-                type="date"
-                value={selectedDate}
-                onChange={(e) => setSelectedDate(e.target.value)}
-                className="px-3 py-2 border border-blue-200 rounded-md focus:outline-none focus:border-blue-400 text-sm"
-                placeholder="Filter by Date"
-              />
-            </div>
+            <input
+              type="date"
+              value={selectedDate}
+              onChange={(e) => setSelectedDate(e.target.value)}
+              className="px-3 py-2 border border-blue-200 rounded-md focus:outline-none focus:border-blue-400 text-sm bg-white"
+            />
 
             <button
               onClick={downloadExcel}
-              className="px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm flex items-center"
+              className="px-3 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 text-sm flex items-center gap-1"
             >
-              <Download className="h-4 w-4 mr-1" />
+              <Download className="h-4 w-4" />
               Download
             </button>
 
             {selectedRows.size > 0 && !showHistory && (
               <button
                 onClick={handleSaveChanges}
-                className="px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm flex items-center"
+                className="px-3 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 text-sm flex items-center gap-1"
               >
-                <CheckCircle2 className="h-4 w-4 mr-1" />
+                <CheckCircle2 className="h-4 w-4" />
                 Save Changes
               </button>
             )}
           </div>
         </div>
 
-        {/* Summary Statistics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-4 text-white">
+        {/* Summary Statistics - More compact */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+          <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-3 text-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-blue-100 text-sm">Total Opening Balance</p>
-                <p className="text-2xl font-bold">{summaryStats.totalOpeningBalance}</p>
+                <p className="text-blue-100 text-xs">Total Opening Balance</p>
+                <p className="text-xl font-bold">{summaryStats.totalOpeningBalance}</p>
               </div>
-              <Package className="h-8 w-8 text-blue-200" />
+              <Package className="h-6 w-6 text-blue-200" />
             </div>
           </div>
-          <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-lg p-4 text-white">
+          <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-lg p-3 text-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-green-100 text-sm">Total Issue Data</p>
-                <p className="text-2xl font-bold">{summaryStats.totalIssueData}</p>
+                <p className="text-green-100 text-xs">Total Issue Data</p>
+                <p className="text-xl font-bold">{summaryStats.totalIssueData}</p>
               </div>
-              <ShoppingCart className="h-8 w-8 text-green-200" />
+              <ShoppingCart className="h-6 w-6 text-green-200" />
             </div>
           </div>
-          <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-lg p-4 text-white">
+          <div className="bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-lg p-3 text-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-yellow-100 text-sm">Total Return</p>
-                <p className="text-2xl font-bold">{summaryStats.totalReturn}</p>
+                <p className="text-yellow-100 text-xs">Total Return</p>
+                <p className="text-xl font-bold">{summaryStats.totalReturn}</p>
               </div>
-              <RotateCcw className="h-8 w-8 text-yellow-200" />
+              <RotateCcw className="h-6 w-6 text-yellow-200" />
             </div>
           </div>
-          <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg p-4 text-white">
+          <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg p-3 text-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-purple-100 text-sm">Closing Balance</p>
-                <p className="text-2xl font-bold">{summaryStats.totalClosingBalance.toLocaleString()}</p>
+                <p className="text-purple-100 text-xs">Closing Balance</p>
+                <p className="text-xl font-bold">{summaryStats.totalClosingBalance.toLocaleString()}</p>
               </div>
-              <Calculator className="h-8 w-8 text-purple-200" />
+              <Calculator className="h-6 w-6 text-purple-200" />
             </div>
           </div>
         </div>
 
         {/* Section Toggle Buttons */}
-        <div className="flex space-x-2 border-b border-gray-200">
+        <div className="flex space-x-1 border-b border-gray-200 mb-4">
           <button
             onClick={() => toggleSection("pending")}
-            className={`px-4 py-2 text-sm font-medium border-b-2 ${
+            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
               !showHistory
                 ? "border-blue-500 text-blue-600 bg-blue-50"
                 : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
             }`}
           >
-            <div className="flex items-center">
-              <Package className="h-4 w-4 mr-2" />
+            <div className="flex items-center gap-2">
+              <Package className="h-4 w-4" />
               Pending Inventory ({filteredPendingData.length})
             </div>
           </button>
           <button
             onClick={() => toggleSection("history")}
-            className={`px-4 py-2 text-sm font-medium border-b-2 ${
+            className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
               showHistory
                 ? "border-blue-500 text-blue-600 bg-blue-50"
                 : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
             }`}
           >
-            <div className="flex items-center">
-              <History className="h-4 w-4 mr-2" />
+            <div className="flex items-center gap-2">
+              <History className="h-4 w-4" />
               Inventory History ({filteredHistoryData.length})
             </div>
           </button>
@@ -862,9 +854,9 @@ const fileToBase64 = (file) => {
 
         {/* Success Message */}
         {successMessage && (
-          <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-2 rounded-md flex items-center justify-between">
-            <div className="flex items-center">
-              <CheckCircle2 className="h-4 w-4 mr-2 text-green-500" />
+          <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-2 rounded-md flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-green-500" />
               {successMessage}
             </div>
             <button
@@ -878,9 +870,9 @@ const fileToBase64 = (file) => {
 
         {/* Error Message */}
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-2 rounded-md flex items-center justify-between">
-            <div className="flex items-center">
-              <X className="h-4 w-4 mr-2 text-red-500" />
+          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-2 rounded-md flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <X className="h-4 w-4 text-red-500" />
               {error}
             </div>
             <button
@@ -892,11 +884,11 @@ const fileToBase64 = (file) => {
           </div>
         )}
 
-        {/* Table Container */}
-        <div className="rounded-lg border border-blue-200 shadow-md bg-white overflow-hidden">
+        {/* Main Table Container - FIXED */}
+        <div className="bg-white rounded-lg border border-gray-200 shadow-sm">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border-b border-blue-100 p-3 flex items-center justify-between">
             <div>
-              <h2 className="text-blue-700 font-medium flex items-center text-sm">
+              <h2 className="text-blue-700 font-medium text-sm">
                 {showHistory ? "Inventory History" : "Pending Inventory Items"}
               </h2>
               <p className="text-blue-600 text-xs">
@@ -908,9 +900,9 @@ const fileToBase64 = (file) => {
             <div className="relative column-filter-container">
               <button
                 onClick={() => setShowColumnFilter(!showColumnFilter)}
-                className="flex items-center px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-md text-sm font-medium transition-colors"
+                className="flex items-center gap-2 px-3 py-2 bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-md text-sm font-medium transition-colors"
               >
-                <Filter className="h-4 w-4 mr-2" />
+                <Filter className="h-4 w-4" />
                 Columns
               </button>
 
@@ -918,14 +910,12 @@ const fileToBase64 = (file) => {
                 <div className="absolute top-full right-0 mt-2 bg-white border border-gray-200 rounded-lg shadow-lg z-50 w-64 max-h-80 overflow-y-auto">
                   <div className="p-3 border-b border-gray-100">
                     <h3 className="font-medium text-gray-900 text-sm mb-2">Show/Hide Columns</h3>
-                    <div className="flex gap-2">
-                      <button
-                        onClick={handleSelectAllColumns}
-                        className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
-                      >
-                        Select All
-                      </button>
-                    </div>
+                    <button
+                      onClick={handleSelectAllColumns}
+                      className="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
+                    >
+                      Select All
+                    </button>
                   </div>
                   <div className="p-2 max-h-60 overflow-y-auto">
                     {COLUMN_CONFIG.filter(col => !showHistory || !col.pendingOnly).map((column) => (
@@ -945,489 +935,488 @@ const fileToBase64 = (file) => {
             </div>
           </div>
 
+          {/* Table Content - FIXED LAYOUT */}
           {loading ? (
-            <div className="text-center py-8">
-              <div className="inline-block animate-spin rounded-full h-6 w-6 border-t-2 border-b-2 border-blue-500 mb-4"></div>
-              <p className="text-blue-600 text-sm">Loading inventory data...</p>
+            <div className="text-center py-12">
+              <div className="inline-block animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-blue-500 mb-4"></div>
+              <p className="text-blue-600">Loading inventory data...</p>
             </div>
           ) : error ? (
-            <div className="bg-red-50 p-4 rounded-md text-red-800 text-center text-sm">
+            <div className="bg-red-50 p-6 rounded-md text-red-800 text-center">
               {error}
               <button className="underline ml-2" onClick={fetchData}>
                 Try again
               </button>
             </div>
           ) : (
-            <div className="overflow-auto" style={{ maxHeight: "60vh" }}>
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50 sticky top-0 z-10">
-                  <tr>
-                    {!showHistory && visibleColumns.action && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Action
-                      </th>
-                    )}
-                    {visibleColumns.serialNo && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Serial No
-                      </th>
-                    )}
-                    {visibleColumns.inventoryNo && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Inventory No
-                      </th>
-                    )}
-                    {visibleColumns.inventoryType && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Inventory Type
-                      </th>
-                    )}
-                    {visibleColumns.department && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Department
-                      </th>
-                    )}
-                    {visibleColumns.itemsName && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Items Name
-                      </th>
-                    )}
-                    {visibleColumns.foodName && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Food Name
-                      </th>
-                    )}
-                    {visibleColumns.openingBalance && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Opening Balance
-                      </th>
-                    )}
-                    {visibleColumns.issueData && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Issue Data
-                      </th>
-                    )}
-                    {visibleColumns.returnData && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Return Data
-                      </th>
-                    )}
-                    {visibleColumns.damageItems && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Damage Items
-                      </th>
-                    )}
-                    {visibleColumns.missingItems && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Missing Items
-                      </th>
-                    )}
-                    {visibleColumns.closingBalance && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Closing Balance
-                      </th>
-                    )}
-                    {visibleColumns.uploadFile && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Upload File
-                      </th>
-                    )}
-                    {visibleColumns.unit && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Unit
-                      </th>
-                    )}
-                    {visibleColumns.perUnitPrice && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Per Unit Price
-                      </th>
-                    )}
-                    {visibleColumns.eventDate && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Event Date
-                      </th>
-                    )}
-                    {visibleColumns.remarks && (
-                      <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Remarks
-                      </th>
-                    )}
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {showHistory ? (
-                    filteredHistoryData.length > 0 ? (
-                      filteredHistoryData.map((record) => (
-                        <tr key={record.id} className="hover:bg-gray-50">
-                          {visibleColumns.serialNo && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.serialNo || ''}
-                            </td>
-                          )}
-                          {visibleColumns.inventoryNo && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.inventoryNo || ''}
-                            </td>
-                          )}
-                          {visibleColumns.inventoryType && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.inventoryType || ''}
-                            </td>
-                          )}
-                          {visibleColumns.department && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.department || ''}
-                            </td>
-                          )}
-                          {visibleColumns.itemsName && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.itemsName || ''}
-                            </td>
-                          )}
-                          {visibleColumns.foodName && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.foodName || ''}
-                            </td>
-                          )}
-                          {visibleColumns.openingBalance && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.openingBalance || 0}
-                            </td>
-                          )}
-                          {visibleColumns.issueData && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.issueData || 0}
-                            </td>
-                          )}
-                          {visibleColumns.returnData && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.returnData || 0}
-                            </td>
-                          )}
-                          {visibleColumns.damageItems && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.damageItems || 0}
-                            </td>
-                          )}
-                          {visibleColumns.missingItems && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.missingItems || 0}
-                            </td>
-                          )}
-                          {visibleColumns.closingBalance && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.closingBalance || 0}
-                            </td>
-                          )}
-                          {visibleColumns.uploadFile && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs">
-                              {record.uploadFile && record.uploadFile !== "No Image" ? (
-                                <OptimizedImage
-                                  src={record.uploadFile}
-                                  alt="Item image"
-                                  className="h-20 w-32 object-cover cursor-pointer border border-gray-200 rounded-md hover:shadow-lg transition-shadow"
-                                  style={{ minHeight: '80px', minWidth: '128px' }}
-                                  onClick={() => window.open(record.uploadFile, '_blank')}
-                                />
-                              ) : (
-                                <span className="text-gray-400">-</span>
-                              )}
-                            </td>
-                          )}
-                          {visibleColumns.unit && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.unit || ''}
-                            </td>
-                          )}
-                          {visibleColumns.perUnitPrice && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {record.perUnitPrice || 0}
-                            </td>
-                          )}
-                          {visibleColumns.eventDate && (
-                            <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                              {formatDate(record.eventDate)}
-                            </td>
-                          )}
-                          {visibleColumns.remarks && (
-                            <td className="px-2 py-3 max-w-xs text-xs text-gray-900 truncate" title={record.remarks}>
-                              {record.remarks || ''}
-                            </td>
-                          )}
-                        </tr>
-                      ))
-                    ) : (
-                      <tr>
-                        <td colSpan={getVisibleColumnsForCurrentSection().length} className="px-4 py-8 text-center text-gray-500 text-sm">
-                          {selectedInventoryType || selectedDate ? 
-                            `No history records found${selectedDate ? ` for ${formatDate(selectedDate)}` : ''}${selectedInventoryType ? ` in ${selectedInventoryType}` : ''}` :
-                            'No inventory history data available. Records will appear here after items are completed.'
-                          }
-                        </td>
-                      </tr>
-                    )
-                  ) : (
-                    filteredPendingData.length > 0 ? (
-                      filteredPendingData.map((record) => {
-                        const isSelected = selectedRows.has(record.id);
-                        const editData = editableData[record.id] || record;
-
-                        return (
-                          <tr key={record.id} className={`hover:bg-gray-50 ${isSelected ? "bg-blue-50" : ""}`}>
-                            {visibleColumns.action && (
-                              <td className="px-2 py-3 whitespace-nowrap">
-                                <input
-                                  type="checkbox"
-                                  checked={isSelected}
-                                  onChange={() => handleRowSelect(record.id)}
-                                  className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                                />
-                              </td>
-                            )}
+            <div className="overflow-x-auto">
+              <div className="max-h-[70vh] overflow-y-auto">
+                <table className="w-full border-collapse">
+                  <thead className="bg-gray-50 sticky top-0 z-10">
+                    <tr>
+                      {!showHistory && visibleColumns.action && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50">
+                          ACTION
+                        </th>
+                      )}
+                      {visibleColumns.serialNo && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[100px]">
+                          SERIAL NO
+                        </th>
+                      )}
+                      {visibleColumns.inventoryNo && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[120px]">
+                          INVENTORY NO
+                        </th>
+                      )}
+                      {visibleColumns.inventoryType && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[120px]">
+                          INVENTORY TYPE
+                        </th>
+                      )}
+                      {visibleColumns.department && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[120px]">
+                          DEPARTMENT
+                        </th>
+                      )}
+                      {visibleColumns.itemsName && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[150px]">
+                          ITEMS NAME
+                        </th>
+                      )}
+                      {visibleColumns.foodName && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[120px]">
+                          FOOD NAME
+                        </th>
+                      )}
+                      {visibleColumns.openingBalance && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[100px]">
+                          OPENING BALANCE
+                        </th>
+                      )}
+                      {visibleColumns.issueData && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[100px]">
+                          ISSUE DATA
+                        </th>
+                      )}
+                      {visibleColumns.returnData && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[100px]">
+                          RETURN DATA
+                        </th>
+                      )}
+                      {visibleColumns.damageItems && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[100px]">
+                          DAMAGE ITEMS
+                        </th>
+                      )}
+                      {visibleColumns.missingItems && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[100px]">
+                          MISSING ITEMS
+                        </th>
+                      )}
+                      {visibleColumns.closingBalance && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[100px]">
+                          CLOSING BALANCE
+                        </th>
+                      )}
+                      {visibleColumns.uploadFile && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[150px]">
+                          UPLOAD FILE
+                        </th>
+                      )}
+                      {visibleColumns.unit && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[80px]">
+                          UNIT
+                        </th>
+                      )}
+                      {visibleColumns.perUnitPrice && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[100px]">
+                          PER UNIT PRICE
+                        </th>
+                      )}
+                      {visibleColumns.eventDate && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[120px]">
+                          EVENT DATE
+                        </th>
+                      )}
+                      {visibleColumns.remarks && (
+                        <th className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200 bg-gray-50 min-w-[150px]">
+                          REMARKS
+                        </th>
+                      )}
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {showHistory ? (
+                      filteredHistoryData.length > 0 ? (
+                        filteredHistoryData.map((record) => (
+                          <tr key={record.id} className="hover:bg-gray-50">
                             {visibleColumns.serialNo && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                                {record.serialNo}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.serialNo || ''}
                               </td>
                             )}
                             {visibleColumns.inventoryNo && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                                {record.inventoryNo}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.inventoryNo || ''}
                               </td>
                             )}
                             {visibleColumns.inventoryType && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                                {record.inventoryType}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.inventoryType || ''}
                               </td>
                             )}
                             {visibleColumns.department && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                                {record.department}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.department || ''}
                               </td>
                             )}
                             {visibleColumns.itemsName && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                                {record.itemsName}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.itemsName || ''}
                               </td>
                             )}
                             {visibleColumns.foodName && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs">
-                                {isSelected ? (
-                                  <input
-                                    type="text"
-                                    value={editData.foodName}
-                                    onChange={(e) => handleEditableChange(record.id, "foodName", e.target.value)}
-                                    className="w-32 px-1 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                    placeholder="Enter food name"
-                                  />
-                                ) : (
-                                  <span className="text-gray-900">{record.foodName}</span>
-                                )}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.foodName || ''}
                               </td>
                             )}
                             {visibleColumns.openingBalance && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs">
-                                {isSelected ? (
-                                  <input
-                                    type="text"
-                                    value={editData.openingBalance}
-                                    onChange={(e) => handleEditableChange(record.id, "openingBalance", e.target.value)}
-                                    className="w-20 px-1 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                  />
-                                ) : (
-                                  <span className="text-gray-900">{record.openingBalance}</span>
-                                )}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.openingBalance || 0}
                               </td>
                             )}
                             {visibleColumns.issueData && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs">
-                                {isSelected ? (
-                                  <input
-                                    type="text"
-                                    value={editData.issueData}
-                                    onChange={(e) => handleEditableChange(record.id, "issueData", e.target.value)}
-                                    className="w-20 px-1 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                  />
-                                ) : (
-                                  <span className="text-gray-900">{record.issueData}</span>
-                                )}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.issueData || 0}
                               </td>
                             )}
                             {visibleColumns.returnData && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs">
-                                {isSelected ? (
-                                  <input
-                                    type="text"
-                                    value={editData.returnData}
-                                    onChange={(e) => handleEditableChange(record.id, "returnData", e.target.value)}
-                                    className="w-20 px-1 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                  />
-                                ) : (
-                                  <span className="text-gray-900">{record.returnData}</span>
-                                )}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.returnData || 0}
                               </td>
                             )}
                             {visibleColumns.damageItems && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs">
-                                {isSelected ? (
-                                  <input
-                                    type="text"
-                                    value={editData.damageItems}
-                                    onChange={(e) => handleEditableChange(record.id, "damageItems", e.target.value)}
-                                    className="w-20 px-1 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                  />
-                                ) : (
-                                  <span className="text-gray-900">{record.damageItems}</span>
-                                )}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.damageItems || 0}
                               </td>
                             )}
                             {visibleColumns.missingItems && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs">
-                                {isSelected ? (
-                                  <input
-                                    type="text"
-                                    value={editData.missingItems}
-                                    onChange={(e) => handleEditableChange(record.id, "missingItems", e.target.value)}
-                                    className="w-20 px-1 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                  />
-                                ) : (
-                                  <span className="text-gray-900">{record.missingItems}</span>
-                                )}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.missingItems || 0}
                               </td>
                             )}
                             {visibleColumns.closingBalance && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs text-gray-900">
-                                {record.closingBalance}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.closingBalance || 0}
                               </td>
                             )}
                             {visibleColumns.uploadFile && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs">
-                                {isSelected ? (
-                                  <div className="flex flex-col items-center">
-                                    <input
-                                      type="file"
-                                      onChange={async (e) => {
-                                        if (e.target.files && e.target.files[0]) {
-                                          const file = e.target.files[0];
-                                          let processedFile = file;
-                                          if (file.size > 2 * 1024 * 1024) {
-                                            processedFile = await compressImage(file);
-                                          }
-                                          handleEditableChange(record.id, 'uploadFile', processedFile);
-                                        }
-                                      }}
-                                      className="w-full text-xs file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
-                                      accept="image/*"
-                                    />
-                                    {editData.uploadFile instanceof File ? (
-                                      <img
-                                        src={URL.createObjectURL(editData.uploadFile)}
-                                        alt="File preview"
-                                        className="h-20 w-32 object-cover mt-1 border border-gray-200 rounded-md"
-                                        style={{ minHeight: '80px', minWidth: '128px' }}
-                                      />
-                                    ) : (
-                                      typeof editData.uploadFile === 'string' && editData.uploadFile && editData.uploadFile !== "No Image" ? (
-                                        <OptimizedImage
-                                          src={editData.uploadFile}
-                                          alt="Current file"
-                                          className="h-20 w-32 object-cover mt-1 border border-gray-200 rounded-md cursor-pointer hover:shadow-lg transition-shadow"
-                                          style={{ minHeight: '80px', minWidth: '128px' }}
-                                          onClick={() => window.open(editData.uploadFile, '_blank')}
-                                        />
-                                      ) : null
-                                    )}
-                                  </div>
+                              <td className="px-3 py-3 text-xs border-r border-gray-100">
+                                {record.uploadFile && record.uploadFile !== "No Image" ? (
+                                  <OptimizedImage
+                                    src={record.uploadFile}
+                                    alt="Item image"
+                                    className="h-16 w-24 object-cover cursor-pointer border border-gray-200 rounded-md hover:shadow-md transition-shadow"
+                                    onClick={() => window.open(record.uploadFile, '_blank')}
+                                  />
                                 ) : (
-                                  record.uploadFile && record.uploadFile !== "No Image" ? (
-                                    <div className="flex items-center justify-center">
-                                      <OptimizedImage
-                                        src={record.uploadFile}
-                                        alt="Uploaded file"
-                                        className="h-20 w-32 object-cover cursor-pointer border border-gray-200 rounded-md hover:shadow-lg transition-shadow"
-                                        onClick={() => window.open(record.uploadFile, '_blank')}
-                                        style={{ minHeight: '80px', minWidth: '128px' }}
-                                      />
-                                    </div>
-                                  ) : (
-                                    <span className="text-gray-400">-</span>
-                                  )
+                                  <span className="text-gray-400">-</span>
                                 )}
                               </td>
                             )}
                             {visibleColumns.unit && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs">
-                                {isSelected ? (
-                                  <input
-                                    type="text"
-                                    value={editData.unit}
-                                    onChange={(e) => handleEditableChange(record.id, "unit", e.target.value)}
-                                    className="w-16 px-1 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                  />
-                                ) : (
-                                  <span className="text-gray-900">{record.unit}</span>
-                                )}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.unit || ''}
                               </td>
                             )}
                             {visibleColumns.perUnitPrice && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs">
-                                {isSelected ? (
-                                  <input
-                                    type="number"
-                                    value={editData.perUnitPrice}
-                                    onChange={(e) => handleEditableChange(record.id, "perUnitPrice", parseInt(e.target.value) || 0)}
-                                    className="w-20 px-1 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                  />
-                                ) : (
-                                  <span className="text-gray-900">{record.perUnitPrice}</span>
-                                )}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {record.perUnitPrice || 0}
                               </td>
                             )}
                             {visibleColumns.eventDate && (
-                              <td className="px-2 py-3 whitespace-nowrap text-xs">
-                                {isSelected ? (
-                                  <input
-                                    type="date"
-                                    value={editData.eventDate}
-                                    onChange={(e) => handleEditableChange(record.id, "eventDate", e.target.value)}
-                                    className="w-32 px-1 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
-                                  />
-                                ) : (
-                                  <span className="text-gray-900">{formatDate(record.eventDate)}</span>
-                                )}
+                              <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                {formatDate(record.eventDate)}
                               </td>
                             )}
                             {visibleColumns.remarks && (
-                              <td className="px-2 py-3 max-w-xs text-xs">
-                                {isSelected ? (
-                                  <textarea
-                                    value={editData.remarks}
-                                    onChange={(e) => handleEditableChange(record.id, "remarks", e.target.value)}
-                                    rows={1}
-                                    className="w-full px-1 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500 resize-none"
-                                  />
-                                ) : (
-                                  <span className="text-gray-900 truncate block" title={record.remarks}>
-                                    {record.remarks}
-                                  </span>
-                                )}
+                              <td className="px-3 py-3 text-xs text-gray-900 max-w-[150px] truncate" title={record.remarks}>
+                                {record.remarks || ''}
                               </td>
                             )}
                           </tr>
-                        );
-                      })
+                        ))
+                      ) : (
+                        <tr>
+                          <td colSpan={getVisibleColumnsForCurrentSection().length} className="px-4 py-8 text-center text-gray-500">
+                            {selectedInventoryType || selectedDate ?
+                              `No history records found${selectedDate ? ` for ${formatDate(selectedDate)}` : ''}${selectedInventoryType ? ` in ${selectedInventoryType}` : ''}` :
+                              'No inventory history data available. Records will appear here after items are completed.'
+                            }
+                          </td>
+                        </tr>
+                      )
                     ) : (
-                      <tr>
-                        <td colSpan={getVisibleColumnsForCurrentSection().length} className="px-4 py-8 text-center text-gray-500 text-sm">
-                          {selectedInventoryType || selectedDate ? 
-                            `No pending inventory items found${selectedDate ? ` for date ${formatDate(selectedDate)}` : ''}${selectedInventoryType ? ` in ${selectedInventoryType}` : ''}` :
-                            'No pending inventory items found'
-                          }
-                        </td>
-                      </tr>
-                    )
-                  )}
-                </tbody>
-              </table>
+                      filteredPendingData.length > 0 ? (
+                        filteredPendingData.map((record) => {
+                          const isSelected = selectedRows.has(record.id);
+                          const editData = editableData[record.id] || record;
+
+                          return (
+                            <tr key={record.id} className={`hover:bg-gray-50 ${isSelected ? "bg-blue-50" : ""}`}>
+                              {visibleColumns.action && (
+                                <td className="px-3 py-3 border-r border-gray-100">
+                                  <input
+                                    type="checkbox"
+                                    checked={isSelected}
+                                    onChange={() => handleRowSelect(record.id)}
+                                    className="rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+                                  />
+                                </td>
+                              )}
+                              {visibleColumns.serialNo && (
+                                <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                  {record.serialNo}
+                                </td>
+                              )}
+                              {visibleColumns.inventoryNo && (
+                                <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                  {record.inventoryNo}
+                                </td>
+                              )}
+                              {visibleColumns.inventoryType && (
+                                <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                  {record.inventoryType}
+                                </td>
+                              )}
+                              {visibleColumns.department && (
+                                <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                  {record.department}
+                                </td>
+                              )}
+                              {visibleColumns.itemsName && (
+                                <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                  {record.itemsName}
+                                </td>
+                              )}
+                              {visibleColumns.foodName && (
+                                <td className="px-3 py-3 text-xs border-r border-gray-100">
+                                  {isSelected ? (
+                                    <input
+                                      type="text"
+                                      value={editData.foodName}
+                                      onChange={(e) => handleEditableChange(record.id, "foodName", e.target.value)}
+                                      className="w-full px-2 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                      placeholder="Enter food name"
+                                    />
+                                  ) : (
+                                    <span className="text-gray-900">{record.foodName}</span>
+                                  )}
+                                </td>
+                              )}
+                              {visibleColumns.openingBalance && (
+                                <td className="px-3 py-3 text-xs border-r border-gray-100">
+                                  {isSelected ? (
+                                    <input
+                                      type="text"
+                                      value={editData.openingBalance}
+                                      onChange={(e) => handleEditableChange(record.id, "openingBalance", e.target.value)}
+                                      className="w-full px-2 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    />
+                                  ) : (
+                                    <span className="text-gray-900">{record.openingBalance}</span>
+                                  )}
+                                </td>
+                              )}
+                              {visibleColumns.issueData && (
+                                <td className="px-3 py-3 text-xs border-r border-gray-100">
+                                  {isSelected ? (
+                                    <input
+                                      type="text"
+                                      value={editData.issueData}
+                                      onChange={(e) => handleEditableChange(record.id, "issueData", e.target.value)}
+                                      className="w-full px-2 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    />
+                                  ) : (
+                                    <span className="text-gray-900">{record.issueData}</span>
+                                  )}
+                                </td>
+                              )}
+                              {visibleColumns.returnData && (
+                                <td className="px-3 py-3 text-xs border-r border-gray-100">
+                                  {isSelected ? (
+                                    <input
+                                      type="text"
+                                      value={editData.returnData}
+                                      onChange={(e) => handleEditableChange(record.id, "returnData", e.target.value)}
+                                      className="w-full px-2 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    />
+                                  ) : (
+                                    <span className="text-gray-900">{record.returnData}</span>
+                                  )}
+                                </td>
+                              )}
+                              {visibleColumns.damageItems && (
+                                <td className="px-3 py-3 text-xs border-r border-gray-100">
+                                  {isSelected ? (
+                                    <input
+                                      type="text"
+                                      value={editData.damageItems}
+                                      onChange={(e) => handleEditableChange(record.id, "damageItems", e.target.value)}
+                                      className="w-full px-2 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    />
+                                  ) : (
+                                    <span className="text-gray-900">{record.damageItems}</span>
+                                  )}
+                                </td>
+                              )}
+                              {visibleColumns.missingItems && (
+                                <td className="px-3 py-3 text-xs border-r border-gray-100">
+                                  {isSelected ? (
+                                    <input
+                                      type="text"
+                                      value={editData.missingItems}
+                                      onChange={(e) => handleEditableChange(record.id, "missingItems", e.target.value)}
+                                      className="w-full px-2 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    />
+                                  ) : (
+                                    <span className="text-gray-900">{record.missingItems}</span>
+                                  )}
+                                </td>
+                              )}
+                              {visibleColumns.closingBalance && (
+                                <td className="px-3 py-3 text-xs text-gray-900 border-r border-gray-100">
+                                  {record.closingBalance}
+                                </td>
+                              )}
+                              {visibleColumns.uploadFile && (
+                                <td className="px-3 py-3 text-xs border-r border-gray-100">
+                                  {isSelected ? (
+                                    <div className="flex flex-col items-center gap-2">
+                                      <input
+                                        type="file"
+                                        onChange={async (e) => {
+                                          if (e.target.files && e.target.files[0]) {
+                                            const file = e.target.files[0];
+                                            let processedFile = file;
+                                            if (file.size > 2 * 1024 * 1024) {
+                                              processedFile = await compressImage(file);
+                                            }
+                                            handleEditableChange(record.id, 'uploadFile', processedFile);
+                                          }
+                                        }}
+                                        className="w-full text-xs file:mr-2 file:py-1 file:px-2 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                                        accept="image/*"
+                                      />
+                                      {editData.uploadFile instanceof File ? (
+                                        <img
+                                          src={URL.createObjectURL(editData.uploadFile)}
+                                          alt="File preview"
+                                          className="h-16 w-24 object-cover border border-gray-200 rounded-md"
+                                        />
+                                      ) : (
+                                        typeof editData.uploadFile === 'string' && editData.uploadFile && editData.uploadFile !== "No Image" ? (
+                                          <OptimizedImage
+                                            src={editData.uploadFile}
+                                            alt="Current file"
+                                            className="h-16 w-24 object-cover border border-gray-200 rounded-md cursor-pointer hover:shadow-md transition-shadow"
+                                            onClick={() => window.open(editData.uploadFile, '_blank')}
+                                          />
+                                        ) : null
+                                      )}
+                                    </div>
+                                  ) : (
+                                    record.uploadFile && record.uploadFile !== "No Image" ? (
+                                      <div className="flex items-center justify-center">
+                                        <OptimizedImage
+                                          src={record.uploadFile}
+                                          alt="Uploaded file"
+                                          className="h-16 w-24 object-cover cursor-pointer border border-gray-200 rounded-md hover:shadow-md transition-shadow"
+                                          onClick={() => window.open(record.uploadFile, '_blank')}
+                                        />
+                                      </div>
+                                    ) : (
+                                      <span className="text-gray-400">-</span>
+                                    )
+                                  )}
+                                </td>
+                              )}
+                              {visibleColumns.unit && (
+                                <td className="px-3 py-3 text-xs border-r border-gray-100">
+                                  {isSelected ? (
+                                    <input
+                                      type="text"
+                                      value={editData.unit}
+                                      onChange={(e) => handleEditableChange(record.id, "unit", e.target.value)}
+                                      className="w-full px-2 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    />
+                                  ) : (
+                                    <span className="text-gray-900">{record.unit}</span>
+                                  )}
+                                </td>
+                              )}
+                              {visibleColumns.perUnitPrice && (
+                                <td className="px-3 py-3 text-xs border-r border-gray-100">
+                                  {isSelected ? (
+                                    <input
+                                      type="number"
+                                      value={editData.perUnitPrice}
+                                      onChange={(e) => handleEditableChange(record.id, "perUnitPrice", parseInt(e.target.value) || 0)}
+                                      className="w-full px-2 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    />
+                                  ) : (
+                                    <span className="text-gray-900">{record.perUnitPrice}</span>
+                                  )}
+                                </td>
+                              )}
+                              {visibleColumns.eventDate && (
+                                <td className="px-3 py-3 text-xs border-r border-gray-100">
+                                  {isSelected ? (
+                                    <input
+                                      type="date"
+                                      value={editData.eventDate}
+                                      onChange={(e) => handleEditableChange(record.id, "eventDate", e.target.value)}
+                                      className="w-full px-2 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500"
+                                    />
+                                  ) : (
+                                    <span className="text-gray-900">{formatDate(record.eventDate)}</span>
+                                  )}
+                                </td>
+                              )}
+                              {visibleColumns.remarks && (
+                                <td className="px-3 py-3 text-xs max-w-[150px]">
+                                  {isSelected ? (
+                                    <textarea
+                                      value={editData.remarks}
+                                      onChange={(e) => handleEditableChange(record.id, "remarks", e.target.value)}
+                                      rows={2}
+                                      className="w-full px-2 py-1 text-xs border rounded focus:outline-none focus:ring-1 focus:ring-blue-500 resize-none"
+                                    />
+                                  ) : (
+                                    <span className="text-gray-900 block truncate" title={record.remarks}>
+                                      {record.remarks}
+                                    </span>
+                                  )}
+                                </td>
+                              )}
+                            </tr>
+                          );
+                        })
+                      ) : (
+                        <tr>
+                          <td colSpan={getVisibleColumnsForCurrentSection().length} className="px-4 py-8 text-center text-gray-500">
+                            {selectedInventoryType || selectedDate ? 
+                              `No pending inventory items found${selectedDate ? ` for date ${formatDate(selectedDate)}` : ''}${selectedInventoryType ? ` in ${selectedInventoryType}` : ''}` :
+                              'No pending inventory items found'
+                            }
+                          </td>
+                        </tr>
+                      )
+                    )}
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
         </div>

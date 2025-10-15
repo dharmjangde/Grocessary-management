@@ -434,7 +434,7 @@ if (inventoryResult.success && inventoryResult.data) {
   if (file) {
     try {
       setImageUploading(true);
-      showToast('Compressing image...', 'success');
+      // showToast('Compressing image...', 'success');
       
       // Compress the image
       const { file: compressedFile, dataUrl } = await compressImage(file, 500);
@@ -445,7 +445,7 @@ if (inventoryResult.success && inventoryResult.data) {
       setSelectedImage(compressedFile);
       setImagePreview(dataUrl);
       
-      showToast('Image compressed successfully!', 'success');
+      // showToast('Image compressed successfully!', 'success');
     } catch (error) {
       console.error('Error compressing image:', error);
       showToast('Failed to compress image', 'error');
@@ -458,7 +458,7 @@ if (inventoryResult.success && inventoryResult.data) {
 const uploadImageToDrive = async (file) => {
   setImageUploading(true);
   try {
-    showToast('Uploading compressed image...', 'success');
+    // showToast('Uploading compressed image...', 'success');
     
     const base64Data = await new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -482,7 +482,6 @@ const uploadImageToDrive = async (file) => {
     const result = await response.json();
     if (!result.success) throw new Error(result.error);
     
-    showToast('Image uploaded successfully!', 'success');
     return result.fileUrl;
   } catch (error) {
     console.error('Error uploading image:', error);
@@ -586,7 +585,7 @@ const uploadImageToDrive = async (file) => {
     const result = await response.json();
     if (!result.success) throw new Error(result.error);
 
-    showToast(`Data saved successfully to ${targetSheet}! ${result.inventoryNo ? 'Inventory No: ' + result.inventoryNo : ''}`);
+showToast("Data saved successfully!");
     handleCancel(formType);
     
     const inventoryResponse = await fetch(`${scriptUrl}?action=fetch&sheet=INVENTORY`);
